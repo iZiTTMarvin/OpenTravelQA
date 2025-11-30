@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Packages
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environments
+env/
+venv/
+venv_*/
+*.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# other
+*.pyc
+__pycache__/
+
+# Streamlit
+.streamlit/
+
+# Database
+*.db
+
+# pytest cache
+.pytest_cache/
+
+# node
+node_modules/
+.env.local
+
+# model checkpoints
+models/
+
+# data
+data/
+
+# allow README or docs
+!docs/
+!README.md
