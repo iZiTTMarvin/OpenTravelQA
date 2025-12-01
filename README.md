@@ -101,13 +101,13 @@ streamlit run main.py
 ![主界面](./docs/main.png)
 
 ### 基于规则的问答
-![基于规则的问答](./docs/rule.png)
+![基于规则的问答](./docs/rules.png)
 
 ### 基于文本分类的问答
 ![基于文本分类的问答](./docs/classification.png)
 
 ### 基于LLM RAG的问答
-![基于LLM RAG的问答](./docs/llm.png)
+![基于LLM RAG的问答](./docs/LLM.png)
 
 ## 团队成员
 
