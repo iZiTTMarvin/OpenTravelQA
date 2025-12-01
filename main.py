@@ -403,59 +403,58 @@ def main():
                 <h4>RAG 配置</h4>
             </div>
             """, unsafe_allow_html=True)
-            
-            使用大模型 = st.checkbox("启用大模型", value=False, 
-                                   help="推荐使用硅基流动API，也支持本地Ollama")
-            
-            if 使用大模型:
-                模型类型 = st.selectbox(
-                    "选择模型类型",
-                    ["siliconflow", "ollama", "openai", "qianwen"],
-                    index=0,
-                    help="推荐使用硅基流动(SiliconFlow)，国内访问稳定"
+
+            # 大模型RAG问答必须使用大模型，默认启用
+            使用大模型 = True
+
+            模型类型 = st.selectbox(
+                "选择模型类型",
+                ["siliconflow", "ollama", "openai", "qianwen"],
+                index=0,
+                help="推荐使用硅基流动(SiliconFlow)，国内访问稳定"
+            )
+
+            # 根据模型类型设置默认模型名和API地址
+            if 模型类型 == "siliconflow":
+                默认模型 = "deepseek-ai/DeepSeek-V3.2-Exp"
+                默认API地址 = "https://api.siliconflow.cn/v1/chat/completions"
+                模型帮助 = "硅基流动支持: deepseek-ai/DeepSeek-V3.2-Exp 等"
+            elif 模型类型 == "ollama":
+                默认模型 = "qwen2.5:7b"
+                默认API地址 = "http://localhost:11434/api/generate"
+                模型帮助 = "Ollama本地模型: qwen2.5:7b, llama3, granite4:tiny-h 等"
+            elif 模型类型 == "openai":
+                默认模型 = "gpt-3.5-turbo"
+                默认API地址 = "https://api.openai.com/v1/chat/completions"
+                模型帮助 = "OpenAI模型"
+            else:  # qianwen
+                默认模型 = "qwen-turbo"
+                默认API地址 = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+                模型帮助 = "通义千问模型"
+
+            模型名称 = st.text_input(
+                "模型名称",
+                value=默认模型,
+                help=模型帮助
+            )
+
+            if 模型类型 != "ollama":
+                API密钥 = st.text_input(
+                    "API密钥",
+                    type="password",
+                    help="硅基流动API密钥请从 https://cloud.siliconflow.cn 获取"
                 )
-                
-                # 根据模型类型设置默认模型名和API地址
-                if 模型类型 == "siliconflow":
-                    默认模型 = "deepseek-ai/DeepSeek-V3.2-Exp"
-                    默认API地址 = "https://api.siliconflow.cn/v1/chat/completions"
-                    模型帮助 = "硅基流动支持: deepseek-ai/DeepSeek-V3.2-Exp 等"
-                elif 模型类型 == "ollama":
-                    默认模型 = "qwen2.5:7b"
-                    默认API地址 = "http://localhost:11434/api/generate"
-                    模型帮助 = "Ollama本地模型: qwen2.5:7b, llama3, granite4:tiny-h 等"
-                elif 模型类型 == "openai":
-                    默认模型 = "gpt-3.5-turbo"
-                    默认API地址 = "https://api.openai.com/v1/chat/completions"
-                    模型帮助 = "OpenAI模型"
-                else:  # qianwen
-                    默认模型 = "qwen-turbo"
-                    默认API地址 = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
-                    模型帮助 = "通义千问模型"
-                
-                模型名称 = st.text_input(
-                    "模型名称",
-                    value=默认模型,
-                    help=模型帮助
-                )
-                
-                if 模型类型 != "ollama":
-                    API密钥 = st.text_input(
-                        "API密钥", 
-                        type="password",
-                        help="硅基流动API密钥请从 https://cloud.siliconflow.cn 获取"
-                    )
-                else:
-                    API密钥 = ""
-                
-                # 更新配置（包含API地址）
-                更新RAG配置(
-                    模型类型=模型类型,
-                    模型名称=模型名称,
-                    API地址=默认API地址,
-                    API密钥=API密钥
-                )
-            
+            else:
+                API密钥 = ""
+
+            # 更新配置（包含API地址）
+            更新RAG配置(
+                模型类型=模型类型,
+                模型名称=模型名称,
+                API地址=默认API地址,
+                API密钥=API密钥
+            )
+
             检索数量 = st.slider("检索文档数量", 1, 5, 3)
         else:
             使用大模型 = False
