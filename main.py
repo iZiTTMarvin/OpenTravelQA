@@ -53,10 +53,9 @@ html, body, [class*="css"] {
     font-family: 'Noto Sans SC', sans-serif;
 }
 
-/* 主背景渐变 */
+/* 主背景 - 简约白色 */
 .stApp {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-attachment: fixed;
+    background: #ffffff;
 }
 
 /* 主内容区域 */
@@ -124,22 +123,21 @@ html, body, [class*="css"] {
 .main-title {
     text-align: center;
     padding: 2rem 0;
-    background: rgba(255, 255, 255, 0.1);
+    background: #f8fafc;
     border-radius: 20px;
     margin-bottom: 2rem;
-    backdrop-filter: blur(10px);
+    border: 1px solid #e2e8f0;
 }
 
 .main-title h1 {
-    color: #ffffff;
+    color: #5b21b6;
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .main-title p {
-    color: rgba(255, 255, 255, 0.9);
+    color: #6b7280;
     font-size: 1.1rem;
     margin-top: 0.5rem;
 }
@@ -185,7 +183,7 @@ html, body, [class*="css"] {
 /* 标签页样式 */
 .stTabs [data-baseweb="tab-list"] {
     gap: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: #f3f4f6;
     padding: 0.5rem;
     border-radius: 12px;
 }
@@ -194,11 +192,13 @@ html, body, [class*="css"] {
     border-radius: 8px;
     padding: 0.5rem 1rem;
     background: transparent;
-    color: white;
+    color: #374151;
 }
 
 .stTabs [aria-selected="true"] {
-    background: rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    color: #5b21b6;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* 展开器样式 */
@@ -222,7 +222,7 @@ html, body, [class*="css"] {
 hr {
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
     margin: 1.5rem 0;
 }
 
