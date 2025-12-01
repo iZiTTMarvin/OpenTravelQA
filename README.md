@@ -95,9 +95,19 @@ streamlit run main.py
 - Prompt工程
 - 支持多种大模型（Ollama、OpenAI等）
 
-## 系统截图
+## 项目成果展示截图
 
-（运行系统后可截图添加）
+### 主界面展示
+![主界面](./docs/main.png)
+
+### 基于规则的问答
+![基于规则的问答](./docs/rule.png)
+
+### 基于文本分类的问答
+![基于文本分类的问答](./docs/classification.png)
+
+### 基于LLM RAG的问答
+![基于LLM RAG的问答](./docs/llm.png)
 
 ## 团队成员
 
@@ -106,7 +116,7 @@ streamlit run main.py
 
 ## 技术栈
 
-- Python 3.8+
+- Python 3.12
 - Streamlit（Web框架）
 - Pandas（数据处理）
 - Scikit-learn（机器学习）

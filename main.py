@@ -420,9 +420,9 @@ def main():
                 默认API地址 = "https://api.siliconflow.cn/v1/chat/completions"
                 模型帮助 = "硅基流动支持: deepseek-ai/DeepSeek-V3.2-Exp 等"
             elif 模型类型 == "ollama":
-                默认模型 = "qwen2.5:7b"
+                默认模型 = "granite4:tiny-h"
                 默认API地址 = "http://localhost:11434/api/generate"
-                模型帮助 = "Ollama本地模型: qwen2.5:7b, llama3, granite4:tiny-h 等"
+                模型帮助 = "Ollama本地模型: qwen3:4b, llama3, granite4:tiny-h 等"
             elif 模型类型 == "openai":
                 默认模型 = "gpt-3.5-turbo"
                 默认API地址 = "https://api.openai.com/v1/chat/completions"
